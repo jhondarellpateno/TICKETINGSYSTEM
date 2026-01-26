@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Crimson Edge</title>
+    
+    <?php 
+    include "db.php";
+
+    $error = "";
+
+    if (isset($_POST['register'])){
+        $name = $_POST['name'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $pass = $_POST['password'];
+
+        $hash = password_hash($pass, PASSWORD_DEFAULT);
+
+        $check = mysqli_query($conn, "SELECT * FROM user WHERE email = '$email'");
+
+        if ( mysqli_num_rows($check) > 0 ){
+
+            $error = "Email is already registered!";
+        }
+        else{
+
+            $insert = mysqli_query($conn, "INSERT INTO user ( name, lname, email, password ) VALUES ( '$name', '$lname', '$email', '$hash' )");
+
+            if ($insert){
+
+            header("Location: login.php");
+            exit;
+
+            }
+            else{
+
+                $error = "Registration Failed! Try Again!";
+            }
+
+        }
+    }
+
+    ?>
+
+    <style>
+        /* --- General Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #4b0000 0%, #0a0a0a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        /* --- Registration Card --- */
+        .register-container {
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid rgba(255, 46, 46, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .header-area {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-area h2 {
+            font-size: 2.2rem;
+            color: #ff4d4d;
+            margin-bottom: 8px;
+        }
+
+        .header-area p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* --- Form Layout --- */
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: white;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #ff2e2e;
+            box-shadow: 0 0 10px rgba(255, 46, 46, 0.2);
+            background: #181818;
+        }
+
+        /* --- Terms Checkbox --- */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            accent-color: #ff2e2e;
+        }
+
+        /* --- Button --- */
+        .register-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #800000, #ff2e2e);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .register-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 46, 46, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* --- Footer Links --- */
+        .footer-links {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .footer-links a {
+            color: #ff4d4d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #444;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <div class="header-area">
+            <h2>Join Us</h2>
+            <p>Start your journey with Crimson Edge</p>
+        </div>
+
+        <form action="#" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name = "name" placeholder="John" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name = "lname" placeholder="Doe" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name ="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the <a href="#" style="color:#ff4d4d;">Terms of Service</a></label>
+            </div>
+
+            <button type="submit" class="register-btn" name="register">Create Account</button>
+        </form>
+
+        <div class="footer-links">
+            Already have an account? <a href="login.php">Login here</a>
+        </div>
+
+        <a href="index.php" class="back-link">Return to Landing Page</a>
+    </div>
+
+</body>
+</html>
