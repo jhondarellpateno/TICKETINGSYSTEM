@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking: TJ Monterde | CrimsonGate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111;
+            --crimson: #b30000;
+            --gold: #fcd116;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .selection-panel {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-left: 5px solid var(--crimson);
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .tier-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tier-option {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .tier-option:hover {
+            border-color: var(--crimson);
+            background: #1a1a1a;
+            transform: translateX(10px);
+        }
+
+        .tier-details {
+            text-align: left;
+        }
+
+        .tier-details h3 {
+            font-size: 1.4rem;
+            color: var(--crimson);
+            margin-bottom: 5px;
+        }
+
+        .tier-details p {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .tier-price {
+            text-align: right;
+        }
+
+        .tier-price .amount {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+
+        .tier-price .label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .back-nav {
+            display: inline-block;
+            margin-top: 30px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-nav:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="selection-panel">
+        <div class="header">
+            <p>SELECT TICKET TYPE FOR</p>
+            <h1>TJ MONTERDE</h1>
+            <p><i class="fas fa-map-marker-alt"></i> Cebu City Sports Center | Sept 22, 2026</p>
+        </div>
+
+        <div class="tier-row">
+            <a href="checkout.html?tier=vip" class="tier-option">
+                <div class="tier-details">
+                    <h3>VIP BACKSTAGE</h3>
+                    <p><i class="fas fa-check"></i> Meet & Greet + Signed Poster + Front Row</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price per person</span>
+                    <span class="amount">₱7,500</span>
+                </div>
+            </a>
+
+            <a href="checkout.html?tier=gold" class="tier-option">
+                <div class="tier-details">
+                    <h3>GOLD PATRON</h3>
+                    <p><i class="fas fa-check"></i> Center View + 1 Free Drink + Reserved Seat</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price per person</span>
+                    <span class="amount">₱4,500</span>
+                </div>
+            </a>
+
+            <a href="checkout.html?tier=regular" class="tier-option">
+                <div class="tier-details">
+                    <h3>REGULAR</h3>
+                    <p><i class="fas fa-check"></i> General Admission + Standing Area</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price per person</span>
+                    <span class="amount">₱1,500</span>
+                </div>
+            </a>
+        </div>
+
+        <a href="ticket.html" class="back-nav"><i class="fas fa-arrow-left"></i> Return to Ticket List</a>
+    </div>
+
+</body>
+
+</html>

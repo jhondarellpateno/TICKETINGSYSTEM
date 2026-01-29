@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking: SB19 | CrimsonGate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111;
+            --sb19-blue: #00d2ff;
+            --silver: #e5e4e2;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .selection-panel {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-left: 5px solid var(--sb19-blue);
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .header h1 span {
+            color: var(--sb19-blue);
+        }
+
+        .header p {
+            color: #888;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .tier-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tier-option {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .tier-option:hover {
+            border-color: var(--sb19-blue);
+            background: linear-gradient(90deg, #1a1a1a 0%, #002b36 100%);
+            transform: translateX(12px);
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+        }
+
+        .tier-details {
+            text-align: left;
+        }
+
+        .tier-details h3 {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tier-details i {
+            color: var(--sb19-blue);
+        }
+
+        .tier-details p {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .tier-price {
+            text-align: right;
+        }
+
+        .tier-price .amount {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--silver);
+            display: block;
+        }
+
+        .tier-price .label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .back-nav {
+            display: inline-block;
+            margin-top: 30px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-nav:hover {
+            color: var(--sb19-blue);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="selection-panel">
+        <div class="header">
+            <p>WAKAS AT SIMULA: THE FINALE</p>
+            <h1>SB19 <span>P-POP KINGS</span></h1>
+            <p><i class="fas fa-gem"></i> Araneta Coliseum | January 17, 2026</p>
+        </div>
+
+        <div class="tier-row">
+            <a href="checkout.html?event=sb19&tier=diamond" class="tier-option">
+                <div class="tier-details">
+                    <h3><i class="fas fa-gem"></i> DIAMOND TIER</h3>
+                    <p>Soundcheck + Hi-Touch + Limited Photo Card Set</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price</span>
+                    <span class="amount">₱15,000</span>
+                </div>
+            </a>
+
+            <a href="checkout.html?event=sb19&tier=vip" class="tier-option">
+                <div class="tier-details">
+                    <h3><i class="fas fa-crown"></i> VIP STANDING</h3>
+                    <p>Early Entry + Official Pagtatag Shirt</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price</span>
+                    <span class="amount">₱8,500</span>
+                </div>
+            </a>
+
+            <a href="checkout.html?event=sb19&tier=genad" class="tier-option">
+                <div class="tier-details">
+                    <h3><i class="fas fa-ticket-alt"></i> REGULAR</h3>
+                    <p>General Admission - Upper Box</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price</span>
+                    <span class="amount">₱2,500</span>
+                </div>
+            </a>
+        </div>
+
+        <a href="ticket.html" class="back-nav"><i class="fas fa-arrow-left"></i> Return to Tickets</a>
+    </div>
+
+</body>
+
+</html>

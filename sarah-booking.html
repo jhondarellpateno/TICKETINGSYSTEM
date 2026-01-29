@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking: Sarah G | CrimsonGate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111;
+            --sarah-red: #ce1126;
+            --gold: #fcd116;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .selection-panel {
+            width: 100%;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            border-left: 5px solid var(--sarah-red);
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+
+        .header h1 span {
+            color: var(--sarah-red);
+        }
+
+        .header p {
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .tier-row {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tier-option {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .tier-option:hover {
+            border-color: var(--sarah-red);
+            background: linear-gradient(90deg, #1a1a1a 0%, #4d0000 100%);
+            transform: translateX(12px);
+            box-shadow: 0 0 25px rgba(206, 17, 38, 0.4);
+        }
+
+        .tier-details {
+            text-align: left;
+        }
+
+        .tier-details h3 {
+            font-size: 1.4rem;
+            color: var(--sarah-red);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tier-details p {
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        .tier-price {
+            text-align: right;
+        }
+
+        .tier-price .amount {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--gold);
+            display: block;
+        }
+
+        .tier-price .label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .back-nav {
+            display: inline-block;
+            margin-top: 30px;
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-nav:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="selection-panel">
+        <div class="header">
+            <p>THE POPSTAR ROYALTY 20TH ANNIVERSARY</p>
+            <h1>SARAH <span>GERONIMO</span></h1>
+            <p><i class="fas fa-map-marker-alt"></i> Smart Araneta Coliseum | June 05, 2026</p>
+        </div>
+
+        <div class="tier-row">
+            <a href="checkout.html?event=sarah&tier=svip" class="tier-option">
+                <div class="tier-details">
+                    <h3><i class="fas fa-crown"></i> SVIP ROYALTY</h3>
+                    <p><i class="fas fa-camera"></i> Meet & Greet + Photo Op + SVIP Gift Bag</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price</span>
+                    <span class="amount">₱15,000</span>
+                </div>
+            </a>
+
+            <a href="checkout.html?event=sarah&tier=patron" class="tier-option">
+                <div class="tier-details">
+                    <h3><i class="fas fa-star"></i> PATRON A</h3>
+                    <p>Reserved Seating (Lower Box) + Official Poster</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price</span>
+                    <span class="amount">₱6,500</span>
+                </div>
+            </a>
+
+            <a href="checkout.html?event=sarah&tier=genad" class="tier-option">
+                <div class="tier-details">
+                    <h3><i class="fas fa-ticket-alt"></i> GENERAL ADMISSION</h3>
+                    <p>Free Seating Area (Upper Box)</p>
+                </div>
+                <div class="tier-price">
+                    <span class="label">Price</span>
+                    <span class="amount">₱1,200</span>
+                </div>
+            </a>
+        </div>
+
+        <a href="ticket.html" class="back-nav"><i class="fas fa-arrow-left"></i> Return to Tickets</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,78 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crimson Edge | Modern Landing Page</title>
+
+    <title>CrimsonGate | Experience the Sound</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- General Styles --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: #0f0f0f;
-            color: #ffffff;
+            background-image: url("style/back.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("style/back.jpg"); 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            
-            filter: blur(8px); 
-            
-            transform: scale(1.1); 
-            z-index: -1; 
-        }
-
-        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 10%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-size: 1.6rem;
+            font-weight: 900;
             color: #ff2e2e;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 15px #ff2e2e;
+            transform: scale(1.05);
         }
 
         nav a {
-            color: #ddd;
+            color: #bbb;
             text-decoration: none;
-            margin-left: 30px;
-            transition: color 0.3s;
+            margin-left: 35px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #ff2e2e;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #ff2e2e;
+            color: #fff;
         }
 
-        /* --- Hero Section --- */
+        nav a:hover::after {
+            width: 100%;
+        }
+
         .hero {
-            height: 80vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -82,120 +92,169 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
             margin-bottom: 20px;
-            background: linear-gradient(to right, #ce6464, #000000);
+            background: linear-gradient(to bottom, #ffffff 30%, #ff2e2e 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
         }
 
         .hero p {
             font-size: 1.2rem;
-            max-width: 600px;
-            color: #3f2121;
-            margin-bottom: 30px;
+            max-width: 700px;
+            color: #d8d0d0;
+            margin-bottom: 40px;
         }
 
         .cta-btn {
-            padding: 15px 40px;
+            padding: 18px 50px;
             background-color: #b30000;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 12px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(179, 0, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(179, 0, 0, 0.3);
         }
 
         .cta-btn:hover {
             background-color: #ff2e2e;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 46, 46, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 46, 46, 0.5);
         }
 
-        /* --- Features Section --- */
         .features {
             padding: 100px 10%;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
         .feature-card {
-            background: #1a1a1a;
-            padding: 40px;
-            border-radius: 20px;
-            flex: 1;
-            text-align: center;
-            transition: transform 0.3s, border 0.3s;
-            border: 1px solid #333;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 50px 40px;
+            border-radius: 24px;
+            text-align: left;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(800px circle at var(--x) var(--y), rgba(255,46,46,0.15), transparent 40%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s;
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            border-color: #ff2e2e;
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 46, 46, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .feature-card:hover h3 {
+            color: #ff2e2e;
+            transform: translateX(5px);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: #ff2e2e;
+            margin-bottom: 25px;
+            display: block;
+            transition: 0.4s;
         }
 
         .feature-card h3 {
             margin-bottom: 15px;
-            color: #ff4d4d;
+            font-size: 1.5rem;
+            color: #fff;
+            transition: 0.3s;
         }
 
         .feature-card p {
-            color: #aaa;
+            color: #ffffff;
             font-size: 0.95rem;
+            line-height: 1.7;
         }
 
-        /* --- Footer --- */
         footer {
-            padding: 40px 10%;
-            background: #080808;
+            padding: 25px 10%; 
+            background: rgba(0, 0, 0, 0.85); 
+            backdrop-filter: blur(10px);
             text-align: center;
-            border-top: 1px solid #222;
-            color: #555;
-            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 46, 46, 0.2);
+            color: #777;
+            font-size: 0.85rem; 
+            letter-spacing: 0.5px;
+        }
+
+        footer p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
         }
 
         footer span {
             color: #ff2e2e;
+            font-size: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        footer:hover span {
+            transform: scale(1.3);
+            text-shadow: 0 0 10px #ff2e2e;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Concert Ticket<span> Booking System</span></div>
+        <div class="logo">CrimsonGate</div>
         <nav>
-            <a href="#">Home</a>
             <a href="#features">Features</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Own the Moment.</h1>
-        <p>Experience the next generation of live music access. We combine a bold aesthetic with lightning-fast booking to keep you in the rhythm.</p>
+        <p>The premier gateway for live music in the Philippines. Bold aesthetics, secure access, and the best seats in the house.</p>
         <a href="login.php" class="cta-btn">Get Started Now</a>
     </section>
 
     <section class="features" id="features">
         <div class="feature-card">
-            <h3>Real-Time Seat Mapping</h3>
-            <p>An interactive, dynamic seating chart that allows users to pick their exact spot in the arena with live availability updates.</p>
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Live Mapping</h3>
+            <p>Pick your exact spot with our high-fidelity interactive arena charts. Real-time availability at your fingertips.</p>
         </div>
         <div class="feature-card">
-            <h3>Secure Payment Gateway</h3>
-            <p>Integrated industry-standard encryption to ensure that every transaction is safe, supporting multiple payment methods from credit cards to digital wallets.</p>
+            <i class="fas fa-shield-alt"></i>
+            <h3>Ironclad Security</h3>
+            <p>Industry-leading encryption protecting every transaction. Support for digital wallets and local banking.</p>
         </div>
         <div class="feature-card">
-            <h3>Automated E-Ticketing</h3>
-            <p>Instant delivery of QR-coded tickets to the user's email or mobile app, eliminating the need for physical printing and reducing entry wait times.</p>
+            <i class="fas fa-bolt"></i>
+            <h3>Instant Entry</h3>
+            <p>No lines, no paper. Receive your QR-coded dynamic tickets instantly to your mobile device.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; <?php echo date("Y"); ?> Concert Booking. Built with <span>&hearts;</span>.</p>
+        <p>&copy; 2026 CrimsonGate Concerts. Built with &hearts;</p>
     </footer>
 
 </body>
