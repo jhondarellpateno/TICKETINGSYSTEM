@@ -256,9 +256,8 @@ $display_name = ucwords(str_replace(['.', '_'], ' ', explode('@', $user_email)[0
         <nav>
             <ul>
                 <li class="active"><a href="#"><i class="fas fa-th-large"></i> <span class="nav-text">Dashboard</span></a></li>
-                <li><a href="ticket.html"><i class="fas fa-ticket-alt"></i> <span class="nav-text">My Tickets</span></a></li>
-                <li><a href="discover.html"><i class="fas fa-compass"></i> <span class="nav-text">Discover</span></a></li>
-                <li><a href="billing.html"><i class="fas fa-wallet"></i> <span class="nav-text">Billing</span></a></li>
+                <li><a href="ticket.html"><i class="fas fa-ticket-alt"></i> <span class="nav-text">Tickets</span></a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
             </ul>
         </nav>
         <div class="logout-section">

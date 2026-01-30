@@ -1,190 +1,225 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking: SB19 | CrimsonGate</title>
+    <title>Checkout: SB19 | CrimsonGate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg: #050505;
-            --card: #111;
-            --sb19-blue: #00d2ff;
-            --silver: #e5e4e2;
-            --border: rgba(255, 255, 255, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            --bg: #0a0a0a;
+            --card: #141414;
+            --accent: #fcd116;
+            --primary-red: #ff2e2e;
+            --border: rgba(255, 255, 255, 0.08);
         }
 
         body {
-            background: var(--bg);
+            background-color: var(--bg);
+            background-image: radial-gradient(circle at 50% 0%, #001a33 0%, #0a0a0a 100%);
             color: white;
+            font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            margin: 0;
         }
 
-        .selection-panel {
+        .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 550px;
+            padding: 20px;
             text-align: center;
         }
 
-        .header {
-            margin-bottom: 40px;
-            border-left: 5px solid var(--sb19-blue);
-            padding-left: 20px;
-            text-align: left;
-        }
-
         .header h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin: 0;
             text-transform: uppercase;
-            color: #fff;
-        }
-
-        .header h1 span {
-            color: var(--sb19-blue);
         }
 
         .header p {
             color: #888;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        .tier-row {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
         }
 
         .tier-option {
             background: var(--card);
-            border: 1px solid var(--border);
-            padding: 25px;
-            border-radius: 12px;
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 20px 25px;
+            margin-bottom: 12px;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            text-decoration: none;
-            color: white;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
         .tier-option:hover {
-            border-color: var(--sb19-blue);
-            background: linear-gradient(90deg, #1a1a1a 0%, #002b36 100%);
-            transform: translateX(12px);
-            box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            background: #1a1a1a;
+            box-shadow: 0 10px 20px rgba(252, 209, 22, 0.1);
         }
 
-        .tier-details {
+        .tier-text {
             text-align: left;
         }
 
-        .tier-details h3 {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .tier-details i {
-            color: var(--sb19-blue);
-        }
-
-        .tier-details p {
-            font-size: 0.85rem;
-            color: #aaa;
-        }
-
-        .tier-price {
-            text-align: right;
-        }
-
-        .tier-price .amount {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: var(--silver);
-            display: block;
-        }
-
-        .tier-price .label {
-            font-size: 0.7rem;
-            color: #666;
+        .tier-text h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: white;
             text-transform: uppercase;
         }
 
-        .back-nav {
-            display: inline-block;
-            margin-top: 30px;
+        .tier-text p {
+            margin: 4px 0 0;
+            font-size: 0.8rem;
             color: #666;
-            text-decoration: none;
-            font-size: 0.9rem;
         }
 
-        .back-nav:hover {
-            color: var(--sb19-blue);
+        .tier-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .tier-option:hover .tier-price {
+            color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .summary-box,
+        .price-row {
+            display: none;
+        }
+
+        #t1:checked~.summary-box,
+        #t2:checked~.summary-box {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        #t1:checked~.tier-list label[for="t1"],
+        #t2:checked~.tier-list label[for="t2"] {
+            border-color: var(--accent);
+            background: #1a1a1a;
+            box-shadow: 0 0 15px rgba(252, 209, 22, 0.2);
+        }
+
+        #t1:checked~.summary-box .p-t1,
+        #t2:checked~.summary-box .p-t2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .summary-title {
+            font-size: 0.7rem;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .price-row {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .price-row .amount {
+            color: var(--accent);
+            font-size: 2.2rem;
+        }
+
+        .btn-pay {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-red);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-pay:hover {
+            background: white;
+            color: black;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <input type="radio" name="tier" id="t1" hidden>
+        <input type="radio" name="tier" id="t2" hidden>
 
-    <div class="selection-panel">
         <div class="header">
-            <p>WAKAS AT SIMULA: THE FINALE</p>
-            <h1>SB19 <span>P-POP KINGS</span></h1>
-            <p><i class="fas fa-gem"></i> Araneta Coliseum | January 17, 2026</p>
+            <h1>SB19</h1>
+            <p>P-Pop Legend | Pagtatag World Tour</p>
         </div>
 
-        <div class="tier-row">
-            <a href="checkout.html?event=sb19&tier=diamond" class="tier-option">
-                <div class="tier-details">
-                    <h3><i class="fas fa-gem"></i> DIAMOND TIER</h3>
-                    <p>Soundcheck + Hi-Touch + Limited Photo Card Set</p>
+        <div class="tier-list">
+            <label for="t1" class="tier-option">
+                <div class="tier-text">
+                    <h3>VIP STANDING</h3>
+                    <p>Soundcheck Access + Photocard Set</p>
                 </div>
-                <div class="tier-price">
-                    <span class="label">Price</span>
-                    <span class="amount">₱15,000</span>
+                <div class="tier-price">₱7,500</div>
+            </label>
+            <label for="t2" class="tier-option">
+                <div class="tier-text">
+                    <h3>GENERAL ADMISSION</h3>
+                    <p>Standard Entry</p>
                 </div>
-            </a>
-
-            <a href="checkout.html?event=sb19&tier=vip" class="tier-option">
-                <div class="tier-details">
-                    <h3><i class="fas fa-crown"></i> VIP STANDING</h3>
-                    <p>Early Entry + Official Pagtatag Shirt</p>
-                </div>
-                <div class="tier-price">
-                    <span class="label">Price</span>
-                    <span class="amount">₱8,500</span>
-                </div>
-            </a>
-
-            <a href="checkout.html?event=sb19&tier=genad" class="tier-option">
-                <div class="tier-details">
-                    <h3><i class="fas fa-ticket-alt"></i> REGULAR</h3>
-                    <p>General Admission - Upper Box</p>
-                </div>
-                <div class="tier-price">
-                    <span class="label">Price</span>
-                    <span class="amount">₱2,500</span>
-                </div>
-            </a>
+                <div class="tier-price">₱2,500</div>
+            </label>
         </div>
 
-        <a href="ticket.html" class="back-nav"><i class="fas fa-arrow-left"></i> Return to Tickets</a>
+        <div class="summary-box">
+            <div class="summary-title">BILLING SUMMARY</div>
+            <div class="price-row p-t1"><span>VIP PASS</span><span class="amount">₱7,500</span></div>
+            <div class="price-row p-t2"><span>REGULAR PASS</span><span class="amount">₱2,500</span></div>
+            <button class="btn-pay">CONFIRM & PAY</button>
+        </div>
+        <p style="margin-top:20px;"><a href="ticket.html"
+                style="color:#555; text-decoration:none; font-size:0.8rem;">Back to Tickets</a></p>
     </div>
-
 </body>
 
 </html>

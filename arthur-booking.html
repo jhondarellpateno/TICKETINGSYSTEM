@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout: Arthur Nery | CrimsonGate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050505;
+            --card: #111;
+            --primary: #a78bfa;
+            /* Lavender Purple */
+            --border: rgba(255, 255, 255, 0.1);
+            --text-dim: #888;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #2e1065 0%, #050505 100%);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .checkout-container {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(18, 18, 18, 0.95);
+            padding: 40px;
+            border-radius: 28px;
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 50px rgba(167, 139, 250, 0.15);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tier-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .summary-box,
+        .price-row {
+            display: none;
+        }
+
+        #an1:checked~.summary-box,
+        #an2:checked~.summary-box {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        #an1:checked~.summary-box .p-an1,
+        #an2:checked~.summary-box .p-an2 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #an1:checked~.tier-selection label[for="an1"],
+        #an2:checked~.tier-selection label[for="an2"] {
+            border: 2px solid var(--primary);
+            background: rgba(167, 139, 250, 0.05);
+        }
+
+        .summary-box {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .price-row {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .price-row .amount {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .btn-pay {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, #5b21b6, var(--primary));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="checkout-container">
+        <input type="radio" name="an-tier" id="an1" hidden>
+        <input type="radio" name="an-tier" id="an2" hidden>
+
+        <div class="header">
+            <h1>Arthur Nery</h1>
+            <p>Pagsamo: The Live Experience</p>
+        </div>
+
+        <div class="tier-selection">
+            <label for="an1" class="tier-label">
+                <strong>PAGSAMO VIP</strong>
+                <span>₱7,800</span>
+            </label>
+            <label for="an2" class="tier-label">
+                <strong>HIGA PATRON</strong>
+                <span>₱1,800</span>
+            </label>
+        </div>
+
+        <div class="summary-box">
+            <div class="summary-title" style="font-size: 0.8rem; color: var(--primary); margin-bottom: 10px;">ORDER
+                SUMMARY</div>
+            <div class="price-row p-an1"><span>VIP PASS</span><span class="amount">₱7,800</span></div>
+            <div class="price-row p-an2"><span>PATRON PASS</span><span class="amount">₱1,800</span></div>
+            <button class="btn-pay">SECURE TICKET</button>
+        </div>
+
+        <p style="text-align: center; margin-top: 20px;">
+            <a href="ticket.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">← Back to
+                Artists</a>
+        </p>
+    </div>
+</body>
+
+</html>

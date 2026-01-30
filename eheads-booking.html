@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout: TJ Monterde | CrimsonGate</title>
+    <title>Checkout: Eraserheads | CrimsonGate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -17,7 +17,7 @@
 
         body {
             background-color: var(--bg);
-            background-image: radial-gradient(circle at 50% 0%, #4b0000 0%, #0a0a0a 100%);
+            background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, #0a0a0a 100%);
             color: white;
             font-family: 'Inter', sans-serif;
             display: flex;
@@ -59,16 +59,13 @@
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
         }
 
-        /* Better Hover Effect */
         .tier-option:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
             background: #1a1a1a;
-            box-shadow: 0 10px 20px rgba(252, 209, 22, 0.1);
+            box-shadow: 0 10px 25px rgba(252, 209, 22, 0.15);
         }
 
         .tier-text {
@@ -97,7 +94,7 @@
 
         .tier-option:hover .tier-price {
             color: var(--accent);
-            scale: 1.1;
+            transform: scale(1.1);
         }
 
         .summary-box,
@@ -191,32 +188,32 @@
         <input type="radio" name="tier" id="t2" hidden>
 
         <div class="header">
-            <h1>TJ Monterde</h1>
-            <p>Sariling Mundo Tour Live</p>
+            <h1>Eraserheads</h1>
+            <p>Huling El Bimbo: The Reunion Tour</p>
         </div>
 
         <div class="tier-list">
             <label for="t1" class="tier-option">
                 <div class="tier-text">
-                    <h3>VIP BACKSTAGE</h3>
-                    <p>Meet & Greet + Photo Op</p>
+                    <h3>EL BIMBO VIP</h3>
+                    <p>Premium Box + Signed Setlist</p>
                 </div>
-                <div class="tier-price">₱7,500</div>
+                <div class="tier-price">₱12,500</div>
             </label>
             <label for="t2" class="tier-option">
                 <div class="tier-text">
-                    <h3>REGULAR</h3>
-                    <p>Standard Admission</p>
+                    <h3>GEN AD</h3>
+                    <p>Upper Box Seating</p>
                 </div>
-                <div class="tier-price">₱1,500</div>
+                <div class="tier-price">₱2,500</div>
             </label>
         </div>
 
         <div class="summary-box">
             <div class="summary-title">BILLING SUMMARY</div>
-            <div class="price-row p-t1"><span>VIP PASS</span><span class="amount">₱7,500</span></div>
-            <div class="price-row p-t2"><span>REGULAR PASS</span><span class="amount">₱1,500</span></div>
-            <button class="btn-pay" id="pay-btn" onclick="goToPayment()">CONFIRM & PAY</button>
+            <div class="price-row p-t1"><span>VIP PASS</span><span class="amount">₱12,500</span></div>
+            <div class="price-row p-t2"><span>REGULAR PASS</span><span class="amount">₱2,500</span></div>
+            <button class="btn-pay">CONFIRM & PAY</button>
         </div>
         <p style="margin-top:20px;"><a href="ticket.html"
                 style="color:#555; text-decoration:none; font-size:0.8rem;">Back to Tickets</a></p>

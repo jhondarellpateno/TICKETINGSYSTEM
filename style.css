@@ -145,4 +145,41 @@
             color: #444;
             text-decoration: none;
         }
-        
+        /* Hide all dynamic elements by default */
+.tj-name, .sarah-name, .sb19-name,
+.tj-price, .sarah-price, .sb19-price {
+    display: none;
+}
+
+/* SHOW TJ DATA when #select-tj is checked */
+#select-tj:checked ~ .billing-card .tj-name,
+#select-tj:checked ~ .billing-card .tj-price {
+    display: block;
+}
+
+/* SHOW SARAH DATA when #select-sarah is checked */
+#select-sarah:checked ~ .billing-card .sarah-name,
+#select-sarah:checked ~ .billing-card .sarah-price {
+    display: block;
+}
+
+/* HIDE DEFAULT MSG when any artist is selected */
+#select-tj:checked ~ .billing-card .default-msg,
+#select-sarah:checked ~ .billing-card .default-msg,
+#select-sb19:checked ~ .billing-card .default-msg {
+    display: none;
+}
+
+/* Styling the active artist name */
+.artist-display h1 {
+    color: #ff2e2e;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Styling the active price */
+.price-display span {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+}
